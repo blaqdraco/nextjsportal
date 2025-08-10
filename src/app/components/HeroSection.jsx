@@ -3,8 +3,30 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
 
 const AboutMeSection = () => {
+  const typeAnimationSequences = [
+    {
+      text: "Hello, I'm Imani Lameck Kirenga",
+      color: "text-primary-500",
+    },
+    {
+      text: "Web Developer",
+      color: "text-cyan-400",
+    },
+    {
+      text: "Mobile Developer",
+      color: "text-pink-400",
+    },
+    {
+      text: "Data scientist and Engineer",
+      color: "text-yellow-400",
+    },
+  ];
+
+  const [currentIdx, setCurrentIdx] = React.useState(0);
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-8">
@@ -14,6 +36,31 @@ const AboutMeSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
+          <span
+            className={`font-bold mb-2 block text-4xl sm:text-5xl lg:text-6xl ${typeAnimationSequences[currentIdx].color}`}
+            style={{ minHeight: "3.5rem" }}
+          >
+            <TypeAnimation
+              sequence={[
+                () => setCurrentIdx(0),
+                typeAnimationSequences[0].text,
+                1000,
+                () => setCurrentIdx(1),
+                typeAnimationSequences[1].text,
+                1000,
+                () => setCurrentIdx(2),
+                typeAnimationSequences[2].text,
+                1000,
+                () => setCurrentIdx(3),
+                typeAnimationSequences[3].text,
+                1000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              cursor={true}
+            />
+          </span>
           <h2 className="text-white mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
             About Me
           </h2>
@@ -32,48 +79,17 @@ const AboutMeSection = () => {
             >
               Contact Me
             </Link>
-            <Link
-              href="/Imani_Lameck_Kirenga_CV.pdf"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download CV
-            </Link>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
-        >
-          <div
-            className="glow-circle rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative flex items-center justify-center transition-shadow duration-300 group"
-            style={{
-              boxShadow: '0 0 40px 10px #a855f7, 0 0 80px 20px #f43f5e',
-            }}
-          >
-            <style jsx>{`
-              .glow-circle {
-                box-shadow: 0 0 40px 10px #a855f7, 0 0 80px 20px #f43f5e;
-                transition: box-shadow 0.3s;
-              }
-              .glow-circle:hover {
-                box-shadow: 0 0 40px 10px #22d3ee, 0 0 80px 20px #f59e42;
-              }
-            `}</style>
+         <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative flex items-center justify-center before:content-[''] before:absolute before:inset-0 before:rounded-full before:z-0 before:pointer-events-none before:bg-gradient-to-r before:from-pink-500 before:via-yellow-400 before:to-cyan-400 before:blur-xl">
             <Image
               src="/images/mypic2.png"
-              alt="Imani Lameck Kirenga"
-              className="rounded-full object-cover w-full h-full"
-              fill
-              sizes="(max-width: 400px) 100vw, 400px"
-              priority
+              alt="hero image"
+              className="relative z-10 rounded-full"
+              width={300}
+              height={300}
             />
           </div>
-        </motion.div>
       </div>
     </section>
   );
