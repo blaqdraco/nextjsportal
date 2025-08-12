@@ -66,7 +66,7 @@ const AboutMeSection = () => {
           </h2>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl max-w-3xl">
             I’m Imani Lameck Kirenga, a passionate software engineer and developer from Tanzania.  
-            I specialize in building intuitive and responsive web and mobile applications using modern technologies like React, Next.js, and Tailwind CSS.
+            I specialize in building intuitive and responsive web and mobile applications using modern technologies both frontend and backend like DRF, FASTAPI, React, Next.js, and Tailwind CSS.
           </p>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl max-w-3xl">
             With a background in software engineering and years of experience in tech, I bring a unique perspective to problem-solving and product development.  

@@ -4,9 +4,12 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+//import XIcon from "../../../public/x-icon.svg";
+// Replace "github.com" and "linkedin.com" with your actual profile URLs:
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,12 +33,19 @@ const EmailSection = () => {
       body: JSONdata,
     };
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
+    try {
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+      if (response.ok && resData?.success) {
+        setErrorMsg("");
+        setEmailSubmitted(true);
+      } else {
+        setEmailSubmitted(false);
+        setErrorMsg(resData?.error || "Failed to send email. Try again later.");
+      }
+    } catch (err) {
+      setEmailSubmitted(false);
+      setErrorMsg("Network error. Please check your connection and try again.");
     }
   };
 
@@ -56,10 +66,10 @@ const EmailSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
+          <Link href="https://github.com/blaqdraco" target="_blank" rel="noopener noreferrer">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="linkedin.com">
+          <Link href="https://www.linkedin.com/in/imani-lameck-19a481203/" target="_blank" rel="noopener noreferrer">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
@@ -71,6 +81,9 @@ const EmailSection = () => {
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
+            {errorMsg ? (
+              <p className="text-red-500 text-sm mb-4">{errorMsg}</p>
+            ) : null}
             <div className="mb-6">
               <label
                 htmlFor="email"
