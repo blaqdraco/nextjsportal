@@ -34,7 +34,7 @@ const AboutMeSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          className="col-span-12 sm:col-span-8 place-self-center text-center sm:text-left sm:justify-self-start"
         >
           <span
             className={`font-bold mb-2 block text-4xl sm:text-5xl lg:text-6xl ${typeAnimationSequences[currentIdx].color}`}
@@ -81,15 +81,15 @@ const AboutMeSection = () => {
             </Link>
           </div>
         </motion.div>
-         <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative flex items-center justify-center before:content-[''] before:absolute before:inset-0 before:rounded-full before:z-0 before:pointer-events-none before:bg-gradient-to-r before:from-pink-500 before:via-yellow-400 before:to-cyan-400 before:blur-xl">
-            <Image
-              src="/images/mypic2.png"
-              alt="hero image"
-              className="relative z-10 rounded-full"
-              width={300}
-              height={300}
-            />
-          </div>
+        <div className="col-span-12 sm:col-span-4 place-self-center justify-self-center rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative flex items-center justify-center before:content-[''] before:absolute before:inset-0 before:rounded-full before:z-0 before:pointer-events-none before:bg-gradient-to-r before:from-pink-500 before:via-yellow-400 before:to-cyan-400 before:blur-xl">
+          <Image
+            src="/images/mypic2.png"
+            alt="hero image"
+            className="relative z-10 rounded-full"
+            width={300}
+            height={300}
+          />
+        </div>
       </div>
     </section>
   );
