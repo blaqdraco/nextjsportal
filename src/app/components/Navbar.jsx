@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon, CpuChipIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
-import { GITHUB_URL, LINKEDIN_URL } from "../config/socials";
+import { GITHUB_URL, LINKEDIN_URL, BUY_ME_A_COFFEE_URL } from "../config/socials";
 
 const navLinks = [
   {
@@ -86,6 +86,15 @@ const Navbar = () => {
                   aria-label="LinkedIn"
                 >
                   <Image src="/linkedin-icon.svg" alt="LinkedIn" width={18} height={18} />
+                </a>
+                <a
+                  href={BUY_ME_A_COFFEE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-2 inline-flex items-center gap-2 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20 hover:text-amber-100"
+                >
+                  <span className="inline-block h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(251,191,36,0.8)]" />
+                  <span className="text-sm font-medium">Buy me a coffee</span>
                 </a>
               </li>
             </ul>
