@@ -6,25 +6,19 @@ import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon, CpuChipIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { GITHUB_URL, LINKEDIN_URL, BUY_ME_A_COFFEE_URL } from "../config/socials";
+import { useLanguage } from "../providers/LanguageProvider";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
+const navLinksBase = [
+  { key: "nav.about", path: "#about" },
+  { key: "nav.projects", path: "#projects" },
+  { key: "nav.contact", path: "#contact" },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -61,9 +55,9 @@ const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:block">
             <ul className="flex items-center gap-1 pr-2">
-              {navLinks.map((link, index) => (
+              {navLinksBase.map((link, index) => (
                 <li key={index} className="group">
-                  <NavLink href={link.path} title={link.title} />
+                  <NavLink href={link.path} title={t(link.key)} />
                 </li>
               ))}
 
@@ -96,6 +90,10 @@ const Navbar = () => {
                   <span className="inline-block h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(251,191,36,0.8)]" />
                   <span className="text-sm font-medium">Buy me a coffee</span>
                 </a>
+                {/* Language switcher */}
+                <div className="ml-2">
+                  <LanguageSwitcher compact />
+                </div>
               </li>
             </ul>
           </div>
@@ -119,7 +117,7 @@ const Navbar = () => {
 
       {/* Mobile Overlay */}
       {navbarOpen ? (
-        <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />
+        <MenuOverlay links={navLinksBase} onClose={() => setNavbarOpen(false)} />
       ) : null}
     </nav>
   );
