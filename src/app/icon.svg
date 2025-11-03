@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d946ef"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle for better visibility on dark/light themes -->
+  <circle cx="256" cy="256" r="232" fill="#0b0c10"/>
+
+  <!-- Tech chip outline -->
+  <rect x="128" y="128" width="256" height="256" rx="28" ry="28" fill="none" stroke="url(#g)" stroke-width="24" filter="url(#glow)"/>
+
+  <!-- Inner circuits -->
+  <g stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="188" y="188" width="136" height="136" rx="16" ry="16" fill="none"/>
+    <path d="M256 188v-44"/>
+    <circle cx="256" cy="128" r="10" fill="url(#g)"/>
+
+    <path d="M324 256h44"/>
+    <circle cx="384" cy="256" r="10" fill="url(#g)"/>
+
+    <path d="M256 324v44"/>
+    <circle cx="256" cy="384" r="10" fill="url(#g)"/>
+
+    <path d="M188 256h-44"/>
+    <circle cx="128" cy="256" r="10" fill="url(#g)"/>
+
+    <!-- Diagonal traces -->
+    <path d="M212 212l-24 -24"/>
+    <circle cx="176" cy="176" r="8" fill="url(#g)"/>
+    <path d="M300 212l24 -24"/>
+    <circle cx="336" cy="176" r="8" fill="url(#g)"/>
+    <path d="M212 300l-24 24"/>
+    <circle cx="176" cy="336" r="8" fill="url(#g)"/>
+    <path d="M300 300l24 24"/>
+    <circle cx="336" cy="336" r="8" fill="url(#g)"/>
+  </g>
+
+  <!-- Core node -->
+  <circle cx="256" cy="256" r="22" fill="url(#g)"/>
+</svg>
