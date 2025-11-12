@@ -43,10 +43,7 @@ export default function Technologiesused({
 
             <p className="tagline">{tagline}</p>
 
-            <div className="chevrons" aria-hidden="true">
-                <span />
-                <span />
-            </div>
+            {/* Minimal: removed decorative chevrons */}
 
             <style jsx>{`
                 .tech-section {
@@ -83,26 +80,15 @@ export default function Technologiesused({
                     position: relative;
                     border-radius: 16px;
                     background: radial-gradient(100% 100% at 0% 0%, #0c0f15 0%, #0a0c11 100%);
-                    border: 1px solid var(--border);
+                    border: 1px solid rgba(255, 255, 255, 0.07);
                     aspect-ratio: 1/1;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     overflow: hidden;
-                    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-                    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+                    transition: transform 180ms ease, border-color 180ms ease;
+                    box-shadow: none;
                     isolation: isolate;
-                }
-                .card::before {
-                    /* dotted glow layer */
-                    content: "";
-                    position: absolute;
-                    inset: 0;
-                    background-image: radial-gradient(rgba(var(--acc), 0.35) 1px, transparent 1px);
-                    background-size: 6px 6px;
-                    opacity: 0;
-                    transition: opacity 240ms ease, transform 240ms ease, filter 240ms ease;
-                    z-index: 0;
                 }
                 .card::after {
                     /* subtle gradient glow */
@@ -115,26 +101,17 @@ export default function Technologiesused({
                         transparent 60%
                     );
                     opacity: 0;
-                    transition: opacity 240ms ease;
+                    transition: opacity 200ms ease;
                     z-index: 0;
                 }
                 .card:hover,
                 .card:focus-visible {
-                    transform: translateY(-4px);
-                    border-color: rgba(var(--acc), 0.6);
-                    box-shadow:
-                        0 8px 30px -12px rgba(var(--acc), 0.55),
-                        inset 0 0 0 1px rgba(var(--acc), 0.35);
-                }
-                .card:hover::before,
-                .card:focus-visible::before {
-                    opacity: 0.9;
-                    filter: saturate(1.2);
-                    transform: scale(1.03);
+                    transform: translateY(-2px);
+                    border-color: rgba(var(--acc), 0.4);
                 }
                 .card:hover::after,
                 .card:focus-visible::after {
-                    opacity: 1;
+                    opacity: 0.8;
                 }
                 .icon-wrap {
                     position: relative;
@@ -149,8 +126,8 @@ export default function Technologiesused({
                 .icon-wrap :global(svg) {
                     width: 72%;
                     height: 72%;
-                    opacity: 0.95;
-                    filter: drop-shadow(0 2px 10px rgba(var(--acc), 0.25));
+                    opacity: 0.85;
+                    filter: none;
                 }
                 .label {
                     position: absolute;
@@ -170,30 +147,7 @@ export default function Technologiesused({
                     color: var(--muted);
                     font-size: 15px;
                 }
-                .chevrons {
-                    display: grid;
-                    place-items: center;
-                    gap: 4px;
-                    margin-top: 6px;
-                }
-                .chevrons span {
-                    width: 18px;
-                    height: 18px;
-                    border-right: 2px solid #9aa2ad;
-                    border-bottom: 2px solid #9aa2ad;
-                    transform: rotate(45deg);
-                    opacity: 0.65;
-                    animation: bob 1.6s ease-in-out infinite;
-                }
-                .chevrons span:nth-child(2) {
-                    margin-top: -6px;
-                    opacity: 0.45;
-                    animation-delay: 0.25s;
-                }
-                @keyframes bob {
-                    0%, 100% { transform: translateY(0) rotate(45deg); }
-                    50% { transform: translateY(6px) rotate(45deg); }
-                }
+                /* minimal: removed bobbing chevrons */
             `}</style>
         </section>
     );

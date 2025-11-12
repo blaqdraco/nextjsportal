@@ -38,20 +38,18 @@ const Navbar = () => {
         <div
           className={
             `mt-3 flex items-center justify-between rounded-2xl border transition-all ` +
-            `border-white/10 bg-[#0b0b0c]/70 backdrop-blur-xl ` +
-            `shadow-lg ring-1 ring-white/10 ` +
-            (scrolled ? "shadow-fuchsia-500/10" : "shadow-transparent")
+            // Minimal: softer border, less opacity, no ring or extra shadows
+            `border-white/5 bg-[#0b0b0c]/60 backdrop-blur-lg`
           }
         >
           {/* Brand */}
           <Link href={"/"} className="flex items-center gap-2 pl-4 py-2">
             <span className="relative inline-flex items-center justify-center">
-              <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-fuchsia-500/20 via-purple-500/10 to-cyan-400/20 blur" />
-              <CpuChipIcon className="relative h-6 w-6 text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.35)]" />
+              {/* Minimal: remove colorful glow backdrop, reduce icon glow */}
+              <CpuChipIcon className="relative h-6 w-6 text-cyan-300" />
             </span>
-            <span className="hidden sm:block bg-gradient-to-r from-fuchsia-400 via-purple-300 to-cyan-300 bg-clip-text text-lg font-semibold tracking-tight text-transparent">
-              
-            </span>
+            {/* Minimal brand text */}
+            <span className="hidden sm:block text-cyan-200 text-lg font-semibold tracking-tight">Imani Lameck</span>
           </Link>
 
           {/* Desktop menu */}
@@ -69,7 +67,7 @@ const Navbar = () => {
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition hover:border-fuchsia-400/40 hover:bg-white/10 hover:shadow-[0_0_20px_rgb(217,70,239,0.25)]"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/5 bg-white/[0.04] transition hover:bg-white/[0.08]"
                   aria-label="GitHub"
                 >
                   <Image src="/github-icon.svg" alt="GitHub" width={18} height={18} />
@@ -78,7 +76,7 @@ const Navbar = () => {
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-[0_0_20px_rgb(34,211,238,0.25)]"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/5 bg-white/[0.04] transition hover:bg-white/[0.08]"
                   aria-label="LinkedIn"
                 >
                   <Image src="/linkedin-icon.svg" alt="LinkedIn" width={18} height={18} />
@@ -88,7 +86,7 @@ const Navbar = () => {
                 <a
                   href="/resume.pdf"
                   download="Imani_Lameck_CV.pdf"
-                  className="ml-1 inline-flex items-center gap-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-3 py-1.5 text-cyan-100 transition hover:border-cyan-300/70 hover:bg-cyan-400/20 hover:text-cyan-50"
+                  className="ml-1 inline-flex items-center gap-2 rounded-lg border border-cyan-400/30 bg-cyan-400/10 px-3 py-1.5 text-cyan-100 transition hover:bg-cyan-400/15"
                 >
                   <ArrowDownTrayIcon className="h-4 w-4" />
                   <span className="text-sm font-medium">Resume</span>

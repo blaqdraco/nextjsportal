@@ -17,9 +17,8 @@ export default function EducationSection() {
         {EDUCATION.map((item, idx) => (
           <article
             key={idx}
-            className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0c]/60 p-5 shadow-lg ring-1 ring-white/10"
+            className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0b0b0c]/60 p-5"
           >
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-fuchsia-500/5 via-purple-400/5 to-cyan-400/5" />
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-start gap-3">
               <div>
                 <div className="flex items-center gap-2 text-white">
