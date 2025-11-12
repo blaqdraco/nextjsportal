@@ -75,35 +75,4 @@ export const EDUCATION = [
     end: "Dec 2013",
     bullets: [],
   },
-  // Trainings & memberships
-  {
-    title: "Structured Engineers Apprenticeship Programme (SEAP) Training",
-    org: "Professional Development",
-    location: "Tanzania",
-    start: "Aug 2024",
-    end: "Aug 2024",
-    bullets: [
-      "Ethics and discipline, job search techniques, cover letter and CV writing, interview tips, and employability attributes.",
-    ],
-  },
-  {
-    title: "Network Administration and Related Topics",
-    org: "Training",
-    location: "Tanzania",
-    start: "Aug 2021",
-    end: "Oct 2021",
-    bullets: [
-      "Preparation of Bill of Requirements, Ethernet termination, CCTV installation, router configuration, and PBX telephone systems.",
-    ],
-  },
-  {
-    title: "Ethical Hacking Training",
-    org: "Training",
-    location: "Tanzania",
-    start: "Aug 2021",
-    end: "Oct 2021",
-    bullets: [
-      "Cyber security principles, penetration testing, and vulnerability assessment (hands-on).",
-    ],
-  },
 ];
