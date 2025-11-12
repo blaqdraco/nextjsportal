@@ -11,6 +11,8 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinksBase = [
   { key: "nav.about", path: "#about" },
+  { title: "Experience", path: "#experience" },
+  { title: "Education", path: "#education" },
   { key: "nav.projects", path: "#projects" },
   { key: "nav.contact", path: "#contact" },
 ];
@@ -57,7 +59,7 @@ const Navbar = () => {
             <ul className="flex items-center gap-1 pr-2">
               {navLinksBase.map((link, index) => (
                 <li key={index} className="group">
-                  <NavLink href={link.path} title={t(link.key)} />
+                  <NavLink href={link.path} title={link.key ? t(link.key) : link.title} />
                 </li>
               ))}
 
