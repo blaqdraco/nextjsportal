@@ -35,8 +35,8 @@ export default function EducationSection() {
 
         {yearsDesc.map((year) => (
           <div key={year} className="relative mb-8">
-            <span className="absolute left-2 top-1.5 inline-block h-3 w-3 rounded-full bg-fuchsia-400 shadow-[0_0_12px_rgba(232,121,249,0.7)]" />
-            <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">{year}</div>
+            {/* year heading (no dot/egg) */}
+            <div className="mb-3 text-lg font-bold text-slate-200">{year}</div>
 
             <div className="space-y-4">
               {groups[year].map((item, idx) => (
