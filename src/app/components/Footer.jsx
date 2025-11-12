@@ -3,7 +3,17 @@ import { BUY_ME_A_COFFEE_URL } from "../config/socials";
 
 const Footer = () => {
   return (
-    <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
+    <footer className="relative z-10 text-white">
+      {/* thin glowing line at the top of the footer */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-fuchsia-500/40 via-purple-400/40 to-cyan-400/40"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-[2px] h-3 bg-gradient-to-r from-fuchsia-500/10 via-purple-400/10 to-cyan-400/10 blur-md"
+      />
+
       <div className="container p-12 flex flex-col sm:flex-row gap-4 items-center justify-between">
         <a
           href={BUY_ME_A_COFFEE_URL}
