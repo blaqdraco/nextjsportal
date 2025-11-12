@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import NavLink from "./NavLink";
-import { Bars3Icon, XMarkIcon, CpuChipIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon, CpuChipIcon, ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { GITHUB_URL, LINKEDIN_URL, BUY_ME_A_COFFEE_URL } from "../config/socials";
 import { useLanguage } from "../providers/LanguageProvider";
@@ -61,7 +61,7 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* Social icons */}
+              {/* Social icons + actions */}
               <li className="ml-2 hidden lg:flex items-center gap-2 pl-2 border-l border-white/10">
                 <a
                   href={GITHUB_URL}
@@ -80,6 +80,16 @@ const Navbar = () => {
                   aria-label="LinkedIn"
                 >
                   <Image src="/linkedin-icon.svg" alt="LinkedIn" width={18} height={18} />
+                </a>
+
+                {/* Resume download */}
+                <a
+                  href="/resume.pdf"
+                  download="Imani_Lameck_CV.pdf"
+                  className="ml-1 inline-flex items-center gap-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-3 py-1.5 text-cyan-100 transition hover:border-cyan-300/70 hover:bg-cyan-400/20 hover:text-cyan-50"
+                >
+                  <ArrowDownTrayIcon className="h-4 w-4" />
+                  <span className="text-sm font-medium">Resume</span>
                 </a>
                 <a
                   href={BUY_ME_A_COFFEE_URL}

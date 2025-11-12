@@ -54,7 +54,20 @@ const MenuOverlay = ({ links, onClose }) => {
             </a>
           </div>
 
-          <div className="mt-4 flex justify-center">
+          <div className="mt-4 flex flex-col items-center gap-3">
+            {/* Resume download */}
+            <a
+              href="/resume.pdf"
+              download="Imani_Lameck_CV.pdf"
+              className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-cyan-100 transition hover:border-cyan-300/70 hover:bg-cyan-400/20 hover:text-cyan-50"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                <path d="M12 3a1 1 0 011 1v8.586l2.293-2.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L11 12.586V4a1 1 0 011-1z" />
+                <path d="M5 19a2 2 0 002 2h10a2 2 0 002-2v-3a1 1 0 112 0v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3a1 1 0 112 0v3z" />
+              </svg>
+              <span className="text-sm font-medium">Resume</span>
+            </a>
+
             <a
               href={BUY_ME_A_COFFEE_URL}
               target="_blank"
