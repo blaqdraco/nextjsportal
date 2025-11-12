@@ -9,41 +9,61 @@ const Cap = () => (
   </svg>
 );
 
+const getYear = (str) => {
+  if (!str) return "";
+  const m = String(str).match(/(\d{4})/);
+  return m ? m[1] : String(str);
+};
+
 export default function EducationSection() {
+  // Group education by start year
+  const groups = EDUCATION.reduce((acc, it) => {
+    const y = getYear(it.start);
+    acc[y] = acc[y] || [];
+    acc[y].push(it);
+    return acc;
+  }, {});
+
+  const yearsDesc = Object.keys(groups).sort((a, b) => Number(b) - Number(a));
+
   return (
     <section id="education" className="py-12 lg:py-16">
       <h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Education</h2>
-      <div className="space-y-4">
-        {EDUCATION.map((item, idx) => (
-          <article
-            key={idx}
-            className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0b0b0c]/60 p-5"
-          >
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-[1fr_auto] items-start gap-3">
-              <div>
-                <div className="flex items-center gap-2 text-white">
-                  <Cap />
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                </div>
-                <p className="mt-1 text-sm text-slate-300">
-                  <span className="font-medium">{item.org}</span>
-                  {item.location ? <span> • {item.location}</span> : null}
-                </p>
-                {item.bullets?.length ? (
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-300">
-                    {item.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-              <div className="text-right text-slate-400 whitespace-nowrap">
-                <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1">
-                  <span className="text-xs font-medium">{item.start} — {item.end}</span>
-                </div>
-              </div>
+
+      <div className="relative pl-8">
+        <div className="pointer-events-none absolute left-3 top-0 bottom-0 w-px bg-white/10" />
+
+        {yearsDesc.map((year) => (
+          <div key={year} className="relative mb-8">
+            <span className="absolute left-2 top-1.5 inline-block h-3 w-3 rounded-full bg-fuchsia-400 shadow-[0_0_12px_rgba(232,121,249,0.7)]" />
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">{year}</div>
+
+            <div className="space-y-4">
+              {groups[year].map((item, idx) => (
+                <article
+                  key={idx}
+                  className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0b0b0c]/60 p-5"
+                >
+                  <div className="flex items-center gap-2 text-white">
+                    <Cap />
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                  </div>
+                  <p className="mt-1 text-sm text-slate-300">
+                    <span className="font-medium">{item.org}</span>
+                    {item.location ? <span> • {item.location}</span> : null}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-400">{item.start} — {item.end}</p>
+                  {item.bullets?.length ? (
+                    <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-300">
+                      {item.bullets.map((b, i) => (
+                        <li key={i}>{b}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
             </div>
-          </article>
+          </div>
         ))}
       </div>
     </section>
