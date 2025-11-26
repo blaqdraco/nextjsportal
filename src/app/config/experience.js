@@ -8,7 +8,7 @@ export const EXPERIENCES = [
     org: "Ministry of Communication and Information Technology (MCIT)",
     location: "Tanzania",
     start: "Feb 2025",
-    end: "Nov 2025",
+    end: "Flexible Contracts",
     bullets: [
       "Developed APIs to enable communication between frontend and backend services.",
       "Coordinated with backend developers to resolve API-related issues and improve reliability.",
