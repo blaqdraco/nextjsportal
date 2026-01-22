@@ -44,6 +44,14 @@ export const EXPERIENCES = [
 
 export const EDUCATION = [
   {
+    title: "Masters of Science in Cyber and Digital Forensics",
+    org: "The University of Dodoma (UDOM)",
+    location: "Dodoma, Tanzania",
+    start: "Dec 2025",
+    end: "Present",
+    bullets: ["Specializing in incident response, threat hunting, and digital evidence handling."],
+  },
+  {
     title: "Bachelor of Science in Software Engineering",
     org: "The University of Dodoma (UDOM)",
     location: "Dodoma, Tanzania",

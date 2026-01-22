@@ -23,6 +23,10 @@ const AboutMeSection = () => {
       text: "Data scientist and Engineer",
       color: "text-yellow-400",
     },
+    {
+      text: "Cyber Security Expert",
+      color: "text-emerald-400",
+    },
   ];
 
   const [currentIdx, setCurrentIdx] = React.useState(0);
@@ -54,6 +58,9 @@ const AboutMeSection = () => {
                 () => setCurrentIdx(3),
                 typeAnimationSequences[3].text,
                 1000,
+                () => setCurrentIdx(4),
+                typeAnimationSequences[4].text,
+                1000,
               ]}
               wrapper="span"
               speed={50}
@@ -65,12 +72,12 @@ const AboutMeSection = () => {
             About Me
           </h2>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl max-w-3xl">
-            I’m Imani Lameck Kirenga, a passionate software engineer and developer from Tanzania.  
-            I specialize in building intuitive and responsive web and mobile applications using modern technologies both frontend and backend like DRF, FASTAPI, React, Next.js, and Tailwind CSS.
+            I’m Imani Lameck Kirenga, a passionate software engineer, developer, and cyber security expert from Tanzania.  
+            I specialize in building secure, intuitive, and responsive web and mobile applications using modern technologies both frontend and backend like DRF, FASTAPI, React, Next.js, and Tailwind CSS.
           </p>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl max-w-3xl">
             With a background in software engineering and years of experience in tech, I bring a unique perspective to problem-solving and product development.  
-            I enjoy crafting clean, efficient code and continuously learning to improve my skills.
+            I enjoy crafting clean, efficient, and resilient code, incorporating secure-by-design principles, threat modeling, and continuous learning to improve my skills.
           </p>
           <div>
             <Link

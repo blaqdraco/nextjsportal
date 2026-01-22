@@ -125,12 +125,13 @@ function AboutSection() {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with JavaScript, React, Redux, Node.js, Express, PostgreSQL,
-            Sequelize, HTML, CSS, and Git. I am a quick learner and I am always
-            looking to expand my knowledge and skill set. I am a team player and
-            I am excited to work with others to create amazing applications.
+            I am a full stack web developer and cyber security expert with a
+            passion for creating secure, interactive, and responsive web
+            applications. I have experience working with JavaScript, React,
+            Redux, Node.js, Express, PostgreSQL, Sequelize, HTML, CSS, and Git,
+            and I apply OWASP-aligned practices to keep every build resilient.
+            I am a quick learner who is always looking to expand my knowledge
+            and skill set, and I love collaborating to ship reliable products.
           </p>
           {/* 3D badge icons grid */}
           <div className="mt-8 grid grid-cols-5 sm:grid-cols-6 gap-4">
