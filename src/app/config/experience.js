@@ -10,7 +10,10 @@ export const EXPERIENCES = [
     start: "Apr 2026",
     end: "Present",
     bullets: [
-      "Contributing to digital service delivery and systems improvement initiatives.",
+      "Developing and improving multiple internal systems to support ministry operations and service delivery.",
+      "Managing server environments, deployments, and system reliability for internal platforms.",
+      "Conducting detailed security assessments on internal systems and recommending hardening measures.",
+      "Aligning technical solutions with operational and compliance requirements.",
     ],
   },
   {
@@ -20,7 +23,10 @@ export const EXPERIENCES = [
     start: "Jan 2026",
     end: "Present",
     bullets: [
-      "Supporting platform and process improvements for mentorship and community programs.",
+      "Leading software development for internal platforms that support mentorship and organizational workflows.",
+      "Developed an internal recruitment management system for TMA to streamline candidate intake and tracking.",
+      "Designed and implemented new application features, bug fixes, and performance improvements.",
+      "Worked with teams to translate program requirements into scalable software solutions.",
     ],
   },
   {
