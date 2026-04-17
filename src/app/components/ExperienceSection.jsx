@@ -1,10 +1,7 @@
 "use client";
 import React from "react";
 import { EXPERIENCES } from "../config/experience";
-
-const Dot = () => (
-  <span className="relative inline-block h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
-);
+import { motion } from "framer-motion";
 
 const getYear = (str) => {
   if (!str) return "";
@@ -13,6 +10,20 @@ const getYear = (str) => {
 };
 
 export default function ExperienceSection() {
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.55, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.12 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 18, scale: 0.98 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: "easeOut" } },
+  };
+
   // Group experiences by start year
   const groups = EXPERIENCES.reduce((acc, it) => {
     const y = getYear(it.start);
@@ -24,23 +35,35 @@ export default function ExperienceSection() {
   const yearsDesc = Object.keys(groups).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <section id="experience" className="py-12 lg:py-16">
-      <h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">Work Experience</h2>
+    <motion.section
+      id="experience"
+      className="py-12 lg:py-16"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white" variants={itemVariants}>
+        Work Experience
+      </motion.h2>
 
       <div className="relative pl-8">
         {/* vertical line */}
         <div className="pointer-events-none absolute left-3 top-0 bottom-0 w-px bg-white/10" />
 
         {yearsDesc.map((year) => (
-          <div key={year} className="relative mb-8">
+          <motion.div key={year} className="relative mb-8" variants={itemVariants}>
             {/* year heading (no dot/egg) */}
             <div className="mb-3 text-lg font-bold text-slate-200">{year}</div>
 
             <div className="space-y-4">
               {groups[year].map((item, idx) => (
-                <article
+                <motion.article
                   key={idx}
                   className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0b0b0c]/60 p-5"
+                  variants={itemVariants}
+                  whileHover={{ y: -3, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   <div className="text-white text-lg font-semibold">{item.title}</div>
                   <p className="mt-1 text-sm text-slate-300">
@@ -67,12 +90,12 @@ export default function ExperienceSection() {
                       </a>
                     </p>
                   ) : null}
-                </article>
+                </motion.article>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

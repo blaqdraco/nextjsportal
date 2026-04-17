@@ -7,57 +7,45 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    title: "Tanzania Mineral Sector Management Information System",
+    description:
+      "Private government project. System details and screenshots are not publicly available due to security requirements.",
+    image: "/images/projects/1.jpg",
+    tag: ["All", "Web", "Private"],
+    gitUrl: null,
+    previewUrl: null,
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
-    image: "/images/projects/2.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    title: "Ministry of Minerals Improved Website",
+    description:
+      "Official ministry website project for the Tanzania Ministry of Minerals, currently under construction for improved public information and service access.",
+    image: "/images/projects/2.jpg",
+    tag: ["All", "Web", "Government"],
+    gitUrl: null,
+    previewUrl: null,
+    isCurrent: true,
+    statusLabel: "Under Construction",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
-    image: "/images/projects/3.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    title: "DCEA Tanzania Authority Private Management System (MCIT)",
+    description:
+      "Private authority management platform developed under MCIT. Access is restricted and not available for public demo.",
+    image: "/images/projects/3.jpg",
+    tag: ["All", "Web", "Private"],
+    gitUrl: null,
+    previewUrl: null,
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/images/projects/5.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/6.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    title: "Tanzania Mining Conference Website",
+    description:
+      "Private conference management system for the Tanzania Mining Conference. Public-facing details are intentionally limited.",
+    image: "/images/projects/4.jpg",
+    tag: ["All", "Web", "Private"],
+    gitUrl: null,
+    previewUrl: null,
   },
 ];
 
@@ -97,8 +85,8 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Private"
+          isSelected={tag === "Private"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
@@ -117,6 +105,8 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              isCurrent={project.isCurrent}
+              statusLabel={project.statusLabel}
             />
           </motion.li>
         ))}

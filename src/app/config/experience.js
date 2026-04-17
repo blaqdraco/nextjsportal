@@ -5,6 +5,26 @@
 export const EXPERIENCES = [
   {
     title: "Software Developer",
+    org: "Ministry of Minerals",
+    location: "Tanzania",
+    start: "Apr 2026",
+    end: "Present",
+    bullets: [
+      "Contributing to digital service delivery and systems improvement initiatives.",
+    ],
+  },
+  {
+    title: "Software Developer",
+    org: "Tanzania Mentors Association",
+    location: "Tanzania",
+    start: "Jan 2026",
+    end: "Present",
+    bullets: [
+      "Supporting platform and process improvements for mentorship and community programs.",
+    ],
+  },
+  {
+    title: "Software Developer",
     org: "Ministry of Communication and Information Technology (MCIT)",
     location: "Tanzania",
     start: "Feb 2025",
