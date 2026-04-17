@@ -6,7 +6,7 @@
 
 export default function Technologiesused({
     title = "Recently used technologies",
-    tagline = "AI-powered automation with intelligent agents for next-level workflows.",
+    tagline = "",
     items,
 }) {
     const tech = items ?? [
