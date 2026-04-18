@@ -1,17 +1,26 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
+  {
+    id: 0,
+    title: "SafariHunt",
+    description:
+      "A startup-focused initiative presented under the Ministry of Communication and Information Technology to support innovation, digital growth, and youth-led solutions.",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Samia%20Suluhu%20Hassan%20%28cropped%29.jpg",
+    gitUrl: null,
+    previewUrl: null,
+    isCurrent: true,
+    statusLabel: "Featured",
+  },
   {
     id: 1,
     title: "Tanzania Mineral Sector Management Information System",
     description:
       "Private government project. System details and screenshots are not publicly available due to security requirements.",
     image: "/images/projects/1.jpg",
-    tag: ["All", "Web", "Private"],
     gitUrl: null,
     previewUrl: null,
   },
@@ -21,7 +30,6 @@ const projectsData = [
     description:
       "Official ministry website project for the Tanzania Ministry of Minerals, currently under construction for improved public information and service access.",
     image: "/images/projects/2.jpg",
-    tag: ["All", "Web", "Government"],
     gitUrl: null,
     previewUrl: null,
     isCurrent: true,
@@ -33,7 +41,6 @@ const projectsData = [
     description:
       "Private authority management platform developed under MCIT. Access is restricted and not available for public demo.",
     image: "/images/projects/3.jpg",
-    tag: ["All", "Web", "Private"],
     gitUrl: null,
     previewUrl: null,
   },
@@ -43,63 +50,35 @@ const projectsData = [
     description:
       "Private conference management system for the Tanzania Mining Conference. Public-facing details are intentionally limited.",
     image: "/images/projects/4.jpg",
-    tag: ["All", "Web", "Private"],
     gitUrl: null,
     previewUrl: null,
   },
 ];
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
-
   const cardVariants = {
-    initial: { y: 50, opacity: 0 },
+    initial: { y: 30, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
 
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+    <section id="projects" className="py-12 lg:py-16">
+      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-6 md:mb-10">
         My Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Private"
-          isSelected={tag === "Private"}
-        />
-      </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
+      <ul ref={ref} className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 md:gap-12">
+        {projectsData.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.15 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}

@@ -27,32 +27,8 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Center: affiliations */}
-          <div className="order-3 sm:order-2">
-            <p className="text-xs text-slate-400 text-center sm:text-left">
-              Affiliations: {" "}
-              <a
-                href="https://www.erb.go.tz/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-cyan-300 hover:text-cyan-200 underline underline-offset-2"
-              >
-                Engineers Registration Board (ERB)
-              </a>
-              {" "}•{" "}
-              <a
-                href="https://www.costech.or.tz/seap" 
-                target="_blank"
-                rel="noreferrer"
-                className="text-cyan-300 hover:text-cyan-200 underline underline-offset-2"
-              >
-                SEAP (Structured Engineers Apprenticeship Programme)
-              </a>
-            </p>
-          </div>
-
           {/* Right: support */}
-          <div className="order-1 sm:order-3 flex justify-center sm:justify-end">
+          <div className="order-1 sm:order-2 flex justify-center sm:justify-end">
             <a
               href={BUY_ME_A_COFFEE_URL}
               target="_blank"

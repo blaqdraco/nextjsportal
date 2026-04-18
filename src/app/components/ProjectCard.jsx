@@ -16,8 +16,8 @@ const ProjectCard = ({
   return (
     <div>
       <div
-        className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
+        className="h-52 md:h-72 rounded-t-xl relative group overflow-hidden bg-[#101318]"
+        style={{ backgroundImage: `linear-gradient(to bottom, rgba(10, 10, 10, 0.08), rgba(10, 10, 10, 0.28)), url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center top" }}
       >
         {hasLinks && (
           <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">

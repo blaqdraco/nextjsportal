@@ -54,44 +54,57 @@ export default function EducationSection() {
         Education
       </motion.h2>
 
-      <div className="relative pl-8">
-        <div className="pointer-events-none absolute left-3 top-0 bottom-0 w-px bg-white/10" />
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:p-8 lg:p-10">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,70,239,0.10),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_34%)]" />
 
-        {yearsDesc.map((year) => (
-          <motion.div key={year} className="relative mb-8" variants={itemVariants}>
-            {/* year heading (no dot/egg) */}
-            <div className="mb-3 text-lg font-bold text-slate-200">{year}</div>
+        <div className="relative grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+          <div className="self-start lg:pr-6">
+            <p className="text-xs uppercase tracking-[0.35em] text-fuchsia-300/70">Education</p>
+            <div className="mt-6 h-px w-16 bg-gradient-to-r from-fuchsia-300/80 to-transparent" />
+          </div>
 
-            <div className="space-y-4">
-              {groups[year].map((item, idx) => (
-                <motion.article
-                  key={idx}
-                  className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#0b0b0c]/60 p-5"
-                  variants={itemVariants}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                >
-                  <div className="flex items-center gap-2 text-white">
-                    <Cap />
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-                  </div>
-                  <p className="mt-1 text-sm text-slate-300">
-                    <span className="font-medium">{item.org}</span>
-                    {item.location ? <span> • {item.location}</span> : null}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-400">{item.start} — {item.end}</p>
-                  {item.bullets?.length ? (
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-300">
-                      {item.bullets.map((b, i) => (
-                        <li key={i}>{b}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </motion.article>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+          <div className="space-y-8 lg:border-l lg:border-white/10 lg:pl-8">
+            {yearsDesc.map((year) => (
+              <motion.div key={year} className="relative" variants={itemVariants}>
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-300/80 shadow-[0_0_0_4px_rgba(217,70,239,0.12)]" />
+                  <div className="text-lg font-semibold text-slate-100">{year}</div>
+                </div>
+
+                <div className="space-y-4">
+                  {groups[year].map((item, idx) => (
+                    <motion.article
+                      key={idx}
+                      className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0c]/70 p-5 shadow-[0_12px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm"
+                      variants={itemVariants}
+                      whileHover={{ y: -3, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    >
+                      <div className="flex items-center gap-2 text-white">
+                        <Cap />
+                        <h3 className="text-xl font-semibold">{item.title}</h3>
+                      </div>
+                      <p className="mt-1 text-sm text-slate-300">
+                        <span className="font-medium">{item.org}</span>
+                        {item.location ? <span> • {item.location}</span> : null}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-400">
+                        {item.start} — {item.end}
+                      </p>
+                      {item.bullets?.length ? (
+                        <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-300">
+                          {item.bullets.map((b, i) => (
+                            <li key={i}>{b}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </motion.article>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </motion.section>
   );

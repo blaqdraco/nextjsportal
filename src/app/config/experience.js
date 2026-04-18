@@ -75,7 +75,7 @@ export const EDUCATION = [
     location: "Dodoma, Tanzania",
     start: "Dec 2025",
     end: "Present",
-    bullets: ["Specializing in incident response, threat hunting, and digital evidence handling."],
+    bullets: [],
   },
   {
     title: "Bachelor of Science in Software Engineering",
@@ -83,7 +83,7 @@ export const EDUCATION = [
     location: "Dodoma, Tanzania",
     start: "Oct 2020",
     end: "Jul 2024",
-    bullets: ["Coursework in software engineering, systems design, and data structures."],
+    bullets: [],
   },
   {
     title: "Advanced Certificate of Secondary Education (ACSEE)",
