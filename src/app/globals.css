@@ -20,3 +20,117 @@ body {
   color: rgb(var(--foreground-rgb));
   background: transparent;
 }
+
+.corner-frame {
+  position: relative;
+  --frame-accent: 255 255 255;
+  --frame-line: rgba(var(--frame-accent), 0.98);
+  --frame-fade: rgba(var(--frame-accent), 0.38);
+}
+
+.corner-frame__corner {
+  position: absolute;
+  width: clamp(38px, 5vw, 64px);
+  height: clamp(38px, 5vw, 64px);
+  pointer-events: none;
+  opacity: 0.96;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 3;
+  filter: drop-shadow(0 0 10px rgba(var(--frame-accent), 0.22));
+}
+
+.corner-frame__corner::before,
+.corner-frame__corner::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.corner-frame__corner--tl {
+  top: 8px;
+  left: 8px;
+}
+
+.corner-frame__corner--tl::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--tl::after {
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--tr {
+  top: 8px;
+  right: 8px;
+}
+
+.corner-frame__corner--tr::before {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--tr::after {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--bl {
+  bottom: 8px;
+  left: 8px;
+}
+
+.corner-frame__corner--bl::before {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--bl::after {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(0deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--br {
+  bottom: 8px;
+  right: 8px;
+}
+
+.corner-frame__corner--br::before {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame__corner--br::after {
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(0deg, var(--frame-line), var(--frame-fade) 70%, transparent);
+}
+
+.corner-frame:hover .corner-frame__corner,
+.corner-frame:focus-within .corner-frame__corner {
+  opacity: 1;
+}

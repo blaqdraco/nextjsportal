@@ -54,7 +54,14 @@ export default function EducationSection() {
         Education
       </motion.h2>
 
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:p-8 lg:p-10">
+      <div
+        className="corner-frame relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:p-8 lg:p-10"
+        style={{ "--frame-accent": "217 70 239" }}
+      >
+        <span className="corner-frame__corner corner-frame__corner--tl" aria-hidden="true" />
+        <span className="corner-frame__corner corner-frame__corner--tr" aria-hidden="true" />
+        <span className="corner-frame__corner corner-frame__corner--bl" aria-hidden="true" />
+        <span className="corner-frame__corner corner-frame__corner--br" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,70,239,0.10),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_34%)]" />
 
         <div className="relative grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
@@ -75,11 +82,16 @@ export default function EducationSection() {
                   {groups[year].map((item, idx) => (
                     <motion.article
                       key={idx}
-                      className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0c]/70 p-5 shadow-[0_12px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm"
+                      className="corner-frame relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0c]/70 p-5 shadow-[0_12px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm"
+                      style={{ "--frame-accent": "217 70 239" }}
                       variants={itemVariants}
                       whileHover={{ y: -3, scale: 1.01 }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
+                      <span className="corner-frame__corner corner-frame__corner--tl" aria-hidden="true" />
+                      <span className="corner-frame__corner corner-frame__corner--tr" aria-hidden="true" />
+                      <span className="corner-frame__corner corner-frame__corner--bl" aria-hidden="true" />
+                      <span className="corner-frame__corner corner-frame__corner--br" aria-hidden="true" />
                       <div className="flex items-center gap-2 text-white">
                         <Cap />
                         <h3 className="text-xl font-semibold">{item.title}</h3>

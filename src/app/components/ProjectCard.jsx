@@ -14,7 +14,11 @@ const ProjectCard = ({
   const hasLinks = Boolean(gitUrl || previewUrl);
 
   return (
-    <div>
+    <div className="corner-frame" style={{ "--frame-accent": "96 165 250" }}>
+      <span className="corner-frame__corner corner-frame__corner--tl" aria-hidden="true" />
+      <span className="corner-frame__corner corner-frame__corner--tr" aria-hidden="true" />
+      <span className="corner-frame__corner corner-frame__corner--bl" aria-hidden="true" />
+      <span className="corner-frame__corner corner-frame__corner--br" aria-hidden="true" />
       <div
         className="h-52 md:h-72 rounded-t-xl relative group overflow-hidden bg-[#101318]"
         style={{ backgroundImage: `linear-gradient(to bottom, rgba(10, 10, 10, 0.08), rgba(10, 10, 10, 0.28)), url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center top" }}

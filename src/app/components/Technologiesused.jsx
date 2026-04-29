@@ -28,11 +28,15 @@ export default function Technologiesused({
                 {tech.map(({ name, color, icon: Icon }) => (
                     <article
                         key={name}
-                        className="card"
-                        style={{ ["--acc"]: color }}
+                        className="card corner-frame"
+                        style={{ ["--acc"]: color, ["--frame-accent"]: color }}
                         aria-label={name}
                         title={name}
                     >
+                        <span className="corner-frame__corner corner-frame__corner--tl" aria-hidden="true" />
+                        <span className="corner-frame__corner corner-frame__corner--tr" aria-hidden="true" />
+                        <span className="corner-frame__corner corner-frame__corner--bl" aria-hidden="true" />
+                        <span className="corner-frame__corner corner-frame__corner--br" aria-hidden="true" />
                         <div className="icon-wrap">
                             <Icon />
                         </div>
