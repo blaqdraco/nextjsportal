@@ -6,20 +6,16 @@ import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { GITHUB_URL, LINKEDIN_URL, BUY_ME_A_COFFEE_URL } from "../config/socials";
-import { useLanguage } from "../providers/LanguageProvider";
-import LanguageSwitcher from "./LanguageSwitcher";
-
 const navLinksBase = [
-  { key: "nav.about", path: "#about" },
+  { title: "About", path: "#about" },
   { title: "Experience", path: "#experience" },
   { title: "Education", path: "#education" },
-  { key: "nav.projects", path: "#projects" },
-  { key: "nav.contact", path: "#contact" },
+  { title: "Projects", path: "#projects" },
+  { title: "Contact", path: "#contact" },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const { t } = useLanguage();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-cyan-400/10 bg-[#0a192f]/70 backdrop-blur-xl shadow-[0_1px_0_rgba(34,211,238,0.08),0_8px_32px_rgba(0,0,0,0.35)]">
@@ -38,7 +34,7 @@ const Navbar = () => {
             <ul className="flex items-center gap-1 pr-2">
               {navLinksBase.map((link, index) => (
                 <li key={index} className="group">
-                  <NavLink href={link.path} title={link.key ? t(link.key) : link.title} />
+                  <NavLink href={link.path} title={link.title} />
                 </li>
               ))}
 
@@ -81,10 +77,7 @@ const Navbar = () => {
                   <span className="inline-block h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(251,191,36,0.8)]" />
                   <span className="text-sm font-medium">Buy me a coffee</span>
                 </a>
-                {/* Language switcher */}
-                <div className="ml-2">
-                  <LanguageSwitcher compact />
-                </div>
+
               </li>
             </ul>
           </div>

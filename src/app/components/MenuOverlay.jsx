@@ -2,11 +2,8 @@ import React from "react";
 import Image from "next/image";
 import NavLink from "./NavLink";
 import { GITHUB_URL, LINKEDIN_URL, BUY_ME_A_COFFEE_URL } from "../config/socials";
-import LanguageSwitcher from "./LanguageSwitcher";
-import { useLanguage } from "../providers/LanguageProvider";
 
 const MenuOverlay = ({ links, onClose }) => {
-  const { t } = useLanguage();
   return (
     <div className="md:hidden fixed inset-0 z-40">
       {/* Backdrop */}
@@ -24,7 +21,7 @@ const MenuOverlay = ({ links, onClose }) => {
               <li key={index} className="group">
                 <NavLink
                   href={link.path}
-                  title={link.key ? t(link.key) : link.title}
+                  title={link.title}
                   onClick={onClose}
                   className="w-full"
                 />
@@ -79,10 +76,6 @@ const MenuOverlay = ({ links, onClose }) => {
             </a>
           </div>
 
-          {/* Language */}
-          <div className="mt-3 flex justify-center">
-            <LanguageSwitcher compact />
-          </div>
         </div>
       </div>
     </div>
