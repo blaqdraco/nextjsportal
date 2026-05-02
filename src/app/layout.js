@@ -1,6 +1,5 @@
 import './globals.css'
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
-import LanguageProvider from './providers/LanguageProvider'
 import NetworkBackground from './components/NetworkBackground'
 
 const spaceGrotesk = Space_Grotesk({
@@ -58,7 +57,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans relative isolate overflow-x-hidden bg-[#0a192f]`}>
         <NetworkBackground />
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
       </body>
     </html>
   )
