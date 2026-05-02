@@ -10,10 +10,12 @@ const projectsData = [
     description:
       "A startup-focused initiative presented under the Ministry of Communication and Information Technology to support innovation, digital growth, and youth-led solutions.",
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Samia%20Suluhu%20Hassan%20%28cropped%29.jpg",
+    imgPosition: "50% 30%",
     gitUrl: null,
     previewUrl: null,
     isCurrent: true,
     statusLabel: "Featured",
+    featured: true,
   },
   {
     id: 1,
@@ -64,19 +66,51 @@ const ProjectsSection = () => {
     animate: { y: 0, opacity: 1 },
   };
 
+  const [featured, ...rest] = projectsData;
+
   return (
-    <section id="projects" className="py-12 lg:py-16">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-6 md:mb-10">
-        My Projects
-      </h2>
-      <ul ref={ref} className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 md:gap-12">
-        {projectsData.map((project, index) => (
+    <section id="projects" className="py-12 lg:py-20">
+      <div className="flex items-end justify-between mb-8 md:mb-12">
+        <div>
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/70 font-mono mb-2">Portfolio</p>
+          <h2 className="text-4xl font-extrabold text-white tracking-tight">
+            My Projects
+          </h2>
+        </div>
+        <div className="hidden sm:block h-px flex-1 mx-8 bg-gradient-to-r from-white/5 to-transparent" />
+      </div>
+
+      <ul ref={ref} className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr">
+        {/* Featured tile — spans 2 columns */}
+        <motion.li
+          key={featured.id}
+          variants={cardVariants}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 0.35 }}
+          className="md:col-span-2 xl:col-span-2"
+        >
+          <ProjectCard
+            title={featured.title}
+            description={featured.description}
+            imgUrl={featured.image}
+            imgPosition={featured.imgPosition}
+            gitUrl={featured.gitUrl}
+            previewUrl={featured.previewUrl}
+            isCurrent={featured.isCurrent}
+            statusLabel={featured.statusLabel}
+            featured={true}
+          />
+        </motion.li>
+
+        {/* Regular tiles */}
+        {rest.map((project, index) => (
           <motion.li
             key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.15 }}
+            transition={{ duration: 0.3, delay: (index + 1) * 0.12 }}
           >
             <ProjectCard
               title={project.title}

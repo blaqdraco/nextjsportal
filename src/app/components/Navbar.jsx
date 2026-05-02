@@ -22,7 +22,9 @@ const Navbar = () => {
   const { t } = useLanguage();
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0b0b0c]/90 backdrop-blur">
+    <nav className="sticky top-0 z-50 border-b border-cyan-400/10 bg-[#0a192f]/70 backdrop-blur-xl shadow-[0_1px_0_rgba(34,211,238,0.08),0_8px_32px_rgba(0,0,0,0.35)]">
+      {/* Subtle cyan glow accent line */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand */}

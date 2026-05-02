@@ -6,13 +6,13 @@ const NavLink = ({ href, title, onClick, className = "" }) => {
       href={href}
       onClick={onClick}
       className={
-        "relative block px-3 py-3 text-sm sm:text-base tracking-wide text-slate-300 transition hover:text-white " +
+        "relative block px-3 py-3 text-sm font-medium tracking-wide text-slate-400 transition-colors duration-200 hover:text-cyan-300 " +
         className
       }
     >
       <span className="relative z-10">{title}</span>
-      {/* underline */}
-      <span className="pointer-events-none absolute inset-x-2 -bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400 transition-transform duration-300 group-hover:scale-x-100" />
+      {/* cyan underline on hover */}
+      <span className="pointer-events-none absolute inset-x-2 -bottom-0.5 h-px origin-left scale-x-0 rounded-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 transition-transform duration-300 group-hover:scale-x-100" />
     </Link>
   );
 };

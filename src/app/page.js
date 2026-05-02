@@ -7,11 +7,13 @@ import AchievementsSection from "./components/AchievementsSection";
 import Technologiesused from "./components/Technologiesused";
 import ExperienceSection from "./components/ExperienceSection";
 import EducationSection from "./components/EducationSection";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
     <main className="relative z-10 flex min-h-screen flex-col">
-      <div className="container mx-auto px-12 py-4">
+      <Navbar />
+      <div className="container mx-auto px-6 sm:px-12 py-4">
         <HeroSection />
         <AchievementsSection />
         <AboutSection />

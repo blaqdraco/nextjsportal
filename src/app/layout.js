@@ -1,9 +1,19 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import LanguageProvider from './providers/LanguageProvider'
 import NetworkBackground from './components/NetworkBackground'
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata = {
   metadataBase: new URL('https://nextjs-portfolio.example.com'),
@@ -46,7 +56,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative isolate overflow-x-hidden`}>
+      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans relative isolate overflow-x-hidden bg-[#0a192f]`}>
         <NetworkBackground />
         <LanguageProvider>{children}</LanguageProvider>
       </body>

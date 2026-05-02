@@ -119,12 +119,13 @@ function Badge3D({ title, children }) {
 
 function AboutSection() {
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} alt="About illustration" />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
+    <section className="text-white py-12 lg:py-20" id="about">
+      <div className="md:grid md:grid-cols-2 gap-12 items-center xl:gap-16">
+        <Image src="/images/about-image.png" width={500} height={500} alt="About illustration" className="rounded-2xl" />
+        <div className="mt-8 md:mt-0 text-left flex flex-col h-full">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-400/70 font-mono mb-3">Who I am</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-5 tracking-tight">About Me</h2>
+          <p className="text-[#8892a4] text-base lg:text-lg leading-relaxed">
             I am a full stack web developer and cyber security expert with a
             passion for creating secure, interactive, and responsive web
             applications. I have experience working with JavaScript, React,

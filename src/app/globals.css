@@ -3,22 +3,94 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --accent: 34 211 238;          /* cyan-400 */
+  --accent-hex: #22d3ee;
+  --bg-base: #0a192f;            /* Midnight Blue */
+  --bg-surface: rgba(13, 25, 48, 0.85);
+  --text-primary: #e8edf4;
+  --text-muted: #8892a4;
+  --section-py: clamp(64px, 8vw, 112px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--text-primary);
   background: transparent;
+  line-height: 1.6;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom thin scrollbar ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--accent), 0.45);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent), 0.75);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 211, 238, 0.45) var(--bg-base);
+}
+
+/* ── Section spacing helper ────────────────────────────── */
+.section-padding {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* ── Glassmorphism helper ──────────────────────────────── */
+.glass {
+  background: rgba(13, 25, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Floating label inputs ─────────────────────────────── */
+.float-label-wrapper {
+  position: relative;
+}
+.float-label-wrapper input,
+.float-label-wrapper textarea {
+  padding-top: 1.35rem;
+  padding-bottom: 0.4rem;
+}
+.float-label-wrapper label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: top 0.18s ease, font-size 0.18s ease, color 0.18s ease;
+}
+.float-label-wrapper textarea ~ label {
+  top: 1rem;
+  transform: none;
+}
+.float-label-wrapper input:focus ~ label,
+.float-label-wrapper input:not(:placeholder-shown) ~ label,
+.float-label-wrapper textarea:focus ~ label,
+.float-label-wrapper textarea:not(:placeholder-shown) ~ label {
+  top: 0.45rem;
+  font-size: 0.7rem;
+  color: rgb(var(--accent));
+  transform: none;
 }
 
 .corner-frame {

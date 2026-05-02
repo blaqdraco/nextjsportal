@@ -43,7 +43,7 @@ export default function ExperienceSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white" variants={itemVariants}>
+      <motion.h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight" variants={itemVariants}>
         Work Experience
       </motion.h2>
 
@@ -85,7 +85,7 @@ export default function ExperienceSection() {
                       <span className="corner-frame__corner corner-frame__corner--tr" aria-hidden="true" />
                       <span className="corner-frame__corner corner-frame__corner--bl" aria-hidden="true" />
                       <span className="corner-frame__corner corner-frame__corner--br" aria-hidden="true" />
-                      <div className="text-lg font-semibold text-white">{item.title}</div>
+                      <div className="text-base font-semibold text-white">{item.title}</div>
                       <p className="mt-1 text-sm text-slate-300">
                         <span className="font-medium">{item.org}</span>
                         {item.location ? <span> • {item.location}</span> : null}
@@ -93,8 +93,20 @@ export default function ExperienceSection() {
                       <p className="mt-1 text-xs text-slate-400">
                         {item.start} — {item.end}
                       </p>
+                      {item.tags?.length ? (
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {item.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="inline-flex items-center rounded-md border border-cyan-400/15 bg-cyan-400/[0.06] px-2 py-0.5 text-[11px] font-mono text-cyan-300/80"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                       {item.bullets?.length ? (
-                        <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-300">
+                        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300 leading-relaxed">
                           {item.bullets.map((b, i) => (
                             <li key={i}>{b}</li>
                           ))}

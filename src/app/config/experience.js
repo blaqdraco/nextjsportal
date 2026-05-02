@@ -1,6 +1,6 @@
 // src/app/config/experience.js
 // Update these arrays with your real resume content. Each item supports:
-// { title, org, location, start, end, bullets: ["..."], link? }
+// { title, org, location, start, end, bullets: ["..."], link?, tags: ["..."] }
 
 export const EXPERIENCES = [
   {
@@ -9,6 +9,7 @@ export const EXPERIENCES = [
     location: "Tanzania",
     start: "Apr 2026",
     end: "Present",
+    tags: [".NET", "Django", "Docker", "Security", "PostgreSQL"],
     bullets: [
       "Developing and improving multiple internal systems to support ministry operations and service delivery.",
       "Managing server environments, deployments, and system reliability for internal platforms.",
@@ -22,6 +23,7 @@ export const EXPERIENCES = [
     location: "Tanzania",
     start: "Jan 2026",
     end: "Present",
+    tags: ["React", "Next.js", "Django REST", "Tailwind CSS"],
     bullets: [
       "Leading software development for internal platforms that support mentorship and organizational workflows.",
       "Developed an internal recruitment management system for TMA to streamline candidate intake and tracking.",
@@ -35,6 +37,7 @@ export const EXPERIENCES = [
     location: "Tanzania",
     start: "Feb 2025",
     end: "Nov 2025",
+    tags: ["FastAPI", "Django ORM", "React", "REST APIs"],
     bullets: [
       "Developed APIs to enable communication between frontend and backend services.",
       "Coordinated with backend developers to resolve API-related issues and improve reliability.",
@@ -48,6 +51,7 @@ export const EXPERIENCES = [
     location: "Tanzania",
     start: "Aug 2023",
     end: "Sept 2023",
+    tags: ["AngularJS", "Tailwind CSS", "PostgreSQL"],
     bullets: [
       "Developed APIs for communication between frontend and backend.",
       "Built responsive user interfaces with AngularJS and Tailwind CSS.",
@@ -60,6 +64,7 @@ export const EXPERIENCES = [
     location: "Tanzania",
     start: "Aug 2022",
     end: "Sep 2022",
+    tags: ["Laravel", "Flutter", "MySQL", "REST APIs"],
     bullets: [
       "Learned and applied the Laravel framework for backend development.",
       "Built a Flutter-based e-commerce mobile application frontend.",

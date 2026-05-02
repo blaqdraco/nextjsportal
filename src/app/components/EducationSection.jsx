@@ -50,7 +50,7 @@ export default function EducationSection() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white" variants={itemVariants}>
+      <motion.h2 className="mb-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight" variants={itemVariants}>
         Education
       </motion.h2>
 
